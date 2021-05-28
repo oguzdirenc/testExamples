@@ -3,11 +3,19 @@ package com.testexample.demo;
 
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+
+
+import java.util.Arrays;
+import java.util.Collection;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 //@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class MathUtilsTest {
+
 
     MathUtils util;
 
@@ -38,9 +46,21 @@ class MathUtilsTest {
         assertEquals(8, result);
     }
 
-    @Test
+    @RepeatedTest(5)
     void testDivide(){
+
+        boolean isServerUp = false;
+
+        // If conditional false do not run test
+       // assumeTrue(isServerUp);
+
         assertThrows(ArithmeticException.class,() ->util.divide(1,0),"Divide by zero should throw");
+    }
+
+    @Test
+    void multiplyTest(){
+        //assertEquals(4,util.multiply(2,2));
+        assertAll();
     }
 
     @Test

@@ -14,6 +14,10 @@ public class MathUtils {
         return a*b;
     }
 
+    public boolean isLessThenFive(int a){
+        return a < 5;
+    }
+
     public int divide(int a, int b){
         return a/b;
     }

@@ -3,8 +3,6 @@ package com.testexample.demo;
 
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 
 
 import java.util.Arrays;

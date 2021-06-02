@@ -12,13 +12,13 @@ public class TodoBusinessImplStubTest {
 
 
 
-    @Test
-    public void test_usingStub(){
-        TodoService todoServiceStub = new TodoServiceStub();
-        TodoBusinessImpl todoBusinessImpl = new TodoBusinessImpl(todoServiceStub);
-
-        List<String> filteredTodos =todoBusinessImpl.retrieveTodosRelatedToSpring("Dummy");
-
-        assertEquals(1,filteredTodos.size());
-    }
+//    @Test
+//    public void test_usingStub(){
+//        TodoService todoServiceStub = new TodoServiceStub();
+//        TodoBusinessImpl todoBusinessImpl = new TodoBusinessImpl(todoServiceStub);
+//
+//        List<String> filteredTodos =todoBusinessImpl.retrieveTodosRelatedToSpring("Dummy");
+//
+//        assertEquals(1,filteredTodos.size());
+//    }
 }

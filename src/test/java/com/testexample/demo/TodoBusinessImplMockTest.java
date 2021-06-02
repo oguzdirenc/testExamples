@@ -1,28 +1,41 @@
 package com.testexample.demo;
 
-import com.testexample.demo.stub.TodoServiceStub;
-import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnit;
+import org.mockito.junit.MockitoRule;
+
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 
 public class TodoBusinessImplMockTest {
+
     @Mock
     TodoService mockTodoService;
+
+    @InjectMocks
+    TodoBusinessImpl todoBusinessImpl = new TodoBusinessImpl();
 
     @Test
     public void test_usingMock(){
 
+       // TodoService mockTodoService =mock(TodoService.class);
+        MockitoAnnotations.openMocks(this);
 
+        List<String> todos = Arrays.asList("Spring MVC","Learning Spring","watch udemy");
 
-        TodoService todoServiceStub = new TodoServiceStub();
-        TodoBusinessImpl todoBusinessImpl = new TodoBusinessImpl(todoServiceStub);
+        when(mockTodoService.retrieveTodos("Dummy")).thenReturn(todos);
 
         List<String> filteredTodos =todoBusinessImpl.retrieveTodosRelatedToSpring("Dummy");
 
-        assertEquals(1,filteredTodos.size());
+        assertEquals(2,filteredTodos.size());
     }
 }

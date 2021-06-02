@@ -3,14 +3,22 @@ package com.testexample.demo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TodoBusinessImpl {
-    private TodoService todoService;
 
-    public TodoBusinessImpl(TodoService todoService) {
-        this.todoService = todoService;
+public class TodoBusinessImpl {
+
+    TodoService todoService;
+
+    public TodoBusinessImpl() {
+       todoService = new TodoService() {
+           @Override
+           public List<String> retrieveTodos(String user) {
+               return null;
+           }
+       };
     }
 
-    public List<String> retrieveTodosRelatedToSpring(String user){
+
+    public List<String> retrieveTodosRelatedToSpring(final String user){
         List<String> filteredTodos = new ArrayList<>();
         List<String> todos = todoService.retrieveTodos(user);
 
